@@ -66,7 +66,7 @@ function App() {
         {todos.map(todo =>
           <Todo
             key={todo.id}
-            updateTodo={updateTodo}
+            toggleTodo={toggleTodo}
             deleteTodo={deleteTodo}
             todo={todo}
           />)}
