@@ -18,15 +18,28 @@ function App() {
   ])
 
   function AddProductToCart(product) {
-    console.log("AddProductToCart")
-    // will change the cart state
+    // Generate a copy of the array
+    const newCart = [...cart]
+
+    // Do nothing if the product exists
+    const id = product.id
+    const foundProduct = newCart.find(cartProduct => cartProduct.id === id)
+    if (foundProduct) {
+      return
+    }
+
+    // Add the new Product with quantity 1
+    newCart.push({ quantity: 1, ...product })
+
+    // Set the Cart
+    setCart(newCart)
   }
-  
+
   function IncreaseQuantity(product) {
     console.log("IncreaseQuantity")
     // Add Quantity by 1 to an item
   }
-  
+
   function DecreaseQuantity(product) {
     console.log("DecreaseQuantity")
     // Decrease Quantity by 1 to an item
@@ -46,19 +59,12 @@ function App() {
 export default App
 
 
-/*
-
-  We are going to design a Product Catalog + Cart Page with 2 sections:
-    - The Product Catalog Component, which contains information for each product
-    
-    - The Cart Component, which contains:
-      - how many of the product I want, total products, total price
-      - AddProduct(), IncreaseQuantity(), DecreaseQuantity()
-
-*/
 
 
-// After adding a product to the cart, the cart should look like this:
+// Cart 1 - Empty Cart
+const emptyCart = []
+
+// Cart 2 - After adding a product to the cart, the cart should look like this:
 const cartWithOneItem = [
   {
     id: "002",
@@ -70,7 +76,7 @@ const cartWithOneItem = [
   }
 ]
 
-// A cart with several items will look like this
+// Cart 3 - A cart with several items will look like this
 const cartWithSeveralItems = [
   {
     id: "003",

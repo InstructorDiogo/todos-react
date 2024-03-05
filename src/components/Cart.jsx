@@ -1,5 +1,4 @@
 import React from 'react'
-import CartItem from './CartItem'
 
 function Cart({ cart, IncreaseQuantity, DecreaseQuantity }) {
     return (
@@ -8,7 +7,15 @@ function Cart({ cart, IncreaseQuantity, DecreaseQuantity }) {
             <h1>Cart</h1>
 
             <ul>
-                {cart.map(product => <CartItem key={product.id} product={product} IncreaseQuantity={IncreaseQuantity} DecreaseQuantity={DecreaseQuantity} />)}
+                {cart.map(product =>
+                    <li key={product.id} className='cart-item'>
+                        <div>{product.name} : {product.quantity}</div>
+                        <div className='actions'>
+                            <button onClick={() => DecreaseQuantity(product)}>-</button>
+                            <button onClick={() => IncreaseQuantity(product)}>+</button>
+                        </div>
+                    </li>
+                )}
             </ul>
 
             <hr style={{ width: "100%" }} />
