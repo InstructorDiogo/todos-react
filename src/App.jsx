@@ -2,10 +2,20 @@
 import { useState } from 'react'
 import productsCatalog from './assets/products.json'
 import ProductCatalog from './components/ProductCatalog'
+import Cart from './components/Cart'
 
 function App() {
 
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([
+    {
+      id: "002",
+      name: "Cheddar Cheese",
+      description: "Aged cheddar cheese known for its deep, tangy flavor and smooth texture, perfect for melting over dishes or enjoying as part of a cheese platter.",
+      image_url: "https://images.openfoodfacts.org/images/products/500/029/514/2893/front_en.13.400.jpg",
+      price: 3.40,
+      quantity: 1
+    }
+  ])
 
   function AddProductToCart(product) {
     // will change the cart state
@@ -23,7 +33,7 @@ function App() {
   return (
     <main className={`product-page`}>
 
-      <ProductCatalog productsCatalog={productsCatalog} />
+      <ProductCatalog AddProductToCart={AddProductToCart} productsCatalog={productsCatalog} />
       <Cart cart={cart} />
 
     </main>
@@ -46,7 +56,6 @@ export default App
 
 
 // After adding a product to the cart, the cart should look like this:
-
 const cartWithOneItem = [
   {
     id: "002",
@@ -58,6 +67,7 @@ const cartWithOneItem = [
   }
 ]
 
+// A cart with several items will look like this
 const cartWithSeveralItems = [
   {
     id: "003",

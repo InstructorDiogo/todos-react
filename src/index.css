@@ -138,11 +138,11 @@ button.fancy{
 .product-catalog, .cart{
   border-radius: 14px;
   border: 2px solid white;
-  min-width: 40px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
 }
 
 .product-catalog-item{
@@ -153,3 +153,16 @@ button.fancy{
   justify-content: space-between;
 }
 
+.product-info img{
+  max-width: 140px;
+}
+
+.cart-item{
+  display: flex;
+  align-items: center;
+}
+
+.cart-item .actions{
+  margin-left: 12px;
+  display: flex;
+}

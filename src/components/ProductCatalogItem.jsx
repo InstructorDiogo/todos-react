@@ -1,15 +1,16 @@
 import React from 'react'
 
-function ProductCatalogItem({ product }) {
-
+function ProductCatalogItem({ AddProductToCart, product }) {
 
     return (
         <div className='product-catalog-item'>
             <div className='product-info'>
                 <div>Name : {product.name}</div>
                 <div>ID : {product.id}</div>
+                <div>{product.description}</div>
+                <img src={product.image_url} />
             </div>
-            <button>Add To Cart</button>
+            <button onClick={() => AddProductToCart(product)}>Add To Cart</button>
         </div>
     )
 }
