@@ -1,11 +1,12 @@
 import React from 'react'
 
-function ProductCatalog({ AddProductToCart, productsCatalog }) {
+function ProductPage({ AddProductToCart, products }) {
+
     return (
         <div className='product-catalog'>
             <h1>Available Products</h1>
 
-            {productsCatalog.map(product =>
+            {products.map(product =>
                 <div key={product.id} className='product-catalog-item'>
                     <div className='product-info'>
                         <div>Name : {product.name}</div>
@@ -20,4 +21,4 @@ function ProductCatalog({ AddProductToCart, productsCatalog }) {
     )
 }
 
-export default ProductCatalog
+export default ProductPage

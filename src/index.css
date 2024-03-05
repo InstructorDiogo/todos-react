@@ -132,6 +132,7 @@ button.fancy{
 
 .product-page{
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -165,4 +166,17 @@ button.fancy{
 .cart-item .actions{
   margin-left: 12px;
   display: flex;
+}
+
+.controls{
+  border-radius: 8px;
+  padding: 14px;
+  border: 2px solid white;
+  align-items: center;
+  display: flex;
+}
+
+.controls input{
+  font-size: 3em;
+  margin-left: 14px;
 }
