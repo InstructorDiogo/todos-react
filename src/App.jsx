@@ -1,80 +1,81 @@
 
 import { useState } from 'react'
-import Todo from './components/Todo'
-import todosJSON from './assets/todos.json'
+import productsCatalog from './assets/products.json'
+import ProductCatalog from './components/ProductCatalog'
 
 function App() {
 
-  const [todos, setTodos] = useState(todosJSON)
+  const [cart, setCart] = useState([])
 
-  const clearList = () => {
-    setTodos([])
+  function AddProductToCart(product) {
+    // will change the cart state
   }
 
-  const refreshList = () => {
-    setTodos(todosJSON)
+  function IncreaseQuantity(productId) {
+    // Add Quantity by 1 to an item
   }
 
-  // set todos array to have all its elements
-  // EXCEPT for the one we're deleting!
-  const deleteTodo = (id) => {
-
-    console.log(`Deleting the todo with id ${id}.`)
-    setTodos(todos.filter(todo => todo.id !== id))
-
-  }
-
-  // retrieve the todo id, toggle its "complete" variable
-  const toggleTodo = (id) => {
-
-      // create a copy of the array ie. [...array]
-      // loop the array and change the todo with "id" in this parameter
-      // update todos setTodos(changedArray)
-
-  }
-
-  // use a filter to get only completed todos
-  // and setTodos to that filtered array
-  const showOnlyCompleted = () => {
-
-    setTodos(todosJSON.filter(todo => todo.completed == true))
-    
-  }
-  
-  // use a filter to get only incomplete todos
-  // and setTodos to that filtered array
-  const showOnlyIncomplete = () => {
-    
-    setTodos(todosJSON.filter(todo => todo.completed == false))
-
+  function DecreaseQuantity(productId) {
+    // Decrease Quantity by 1 to an item
+    // If quantity is 0 after decreasing, remove the item from the cart array
   }
 
   return (
-    <div className={`container`}>
+    <main className={`product-page`}>
 
-      <h2>Todo List</h2>
+      <ProductCatalog productsCatalog={productsCatalog} />
+      <Cart cart={cart} />
 
-      <div className='actions'>
-        <button onClick={showOnlyIncomplete}> Incomplete </button>
-        <button onClick={showOnlyCompleted}> Completed </button>
-        <button onClick={clearList}>Clear List</button>
-        <button onClick={refreshList}>Refresh List</button>
-      </div>
-
-      <div className='todo-list'>
-
-        {todos.map(todo =>
-          <Todo
-            key={todo.id}
-            toggleTodo={toggleTodo}
-            deleteTodo={deleteTodo}
-            todo={todo}
-          />)}
-
-      </div>
-
-    </div>
+    </main>
   )
 }
 
 export default App
+
+
+/*
+
+  We are going to design a Product Catalog + Cart Page with 2 sections:
+    - The Product Catalog Component, which contains information for each product
+    
+    - The Cart Component, which contains:
+      - how many of the product I want, total products, total price
+      - AddProduct(), IncreaseQuantity(), DecreaseQuantity()
+
+*/
+
+
+// After adding a product to the cart, the cart should look like this:
+
+const cartWithOneItem = [
+  {
+    id: "002",
+    name: "Cheddar Cheese",
+    description: "Aged cheddar cheese known for its deep, tangy flavor and smooth texture, perfect for melting over dishes or enjoying as part of a cheese platter.",
+    image_url: "https://images.openfoodfacts.org/images/products/500/029/514/2893/front_en.13.400.jpg",
+    price: 3.40,
+    quantity: 1
+  }
+]
+
+const cartWithSeveralItems = [
+  {
+    id: "003",
+    name: "Gala Apples",
+    description: "Sweet, crisp, and juicy apples with a vibrant red and yellow skin, ideal for snacking, baking, or making apple sauce.",
+    image_url: "https://images.openfoodfacts.org/images/products/405/648/918/6328/front_de.14.400.jpg",
+    price: 2.40,
+    quantity: 10
+  },
+  {
+    id: "002",
+    name: "Cheddar Cheese",
+    description: "Aged cheddar cheese known for its deep, tangy flavor and smooth texture, perfect for melting over dishes or enjoying as part of a cheese platter.",
+    image_url: "https://images.openfoodfacts.org/images/products/500/029/514/2893/front_en.13.400.jpg",
+    price: 3.40,
+    quantity: 3
+  }
+]
+
+
+

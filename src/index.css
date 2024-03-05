@@ -129,3 +129,27 @@ button.fancy{
   margin-bottom: 12px;
   gap: 12px;
 }
+
+.product-page{
+  display: flex;
+  gap: 20px;
+}
+
+.product-catalog, .cart{
+  border-radius: 14px;
+  border: 2px solid white;
+  min-width: 40px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-catalog-item{
+  border-radius: 8px;
+  padding: 14px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-between;
+}
+
