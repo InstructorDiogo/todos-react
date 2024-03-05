@@ -18,14 +18,17 @@ function App() {
   ])
 
   function AddProductToCart(product) {
+    console.log("AddProductToCart")
     // will change the cart state
   }
-
-  function IncreaseQuantity(productId) {
+  
+  function IncreaseQuantity(product) {
+    console.log("IncreaseQuantity")
     // Add Quantity by 1 to an item
   }
-
-  function DecreaseQuantity(productId) {
+  
+  function DecreaseQuantity(product) {
+    console.log("DecreaseQuantity")
     // Decrease Quantity by 1 to an item
     // If quantity is 0 after decreasing, remove the item from the cart array
   }
@@ -34,7 +37,7 @@ function App() {
     <main className={`product-page`}>
 
       <ProductCatalog AddProductToCart={AddProductToCart} productsCatalog={productsCatalog} />
-      <Cart cart={cart} />
+      <Cart IncreaseQuantity={IncreaseQuantity} DecreaseQuantity={DecreaseQuantity} cart={cart} />
 
     </main>
   )

@@ -1,14 +1,14 @@
 import React from 'react'
 import CartItem from './CartItem'
 
-function Cart({ cart }) {
+function Cart({ cart, IncreaseQuantity, DecreaseQuantity }) {
     return (
         <div className='cart'>
 
             <h1>Cart</h1>
 
             <ul>
-                {cart.map(item => <CartItem key={item.id} item={item} />)}
+                {cart.map(product => <CartItem key={product.id} product={product} IncreaseQuantity={IncreaseQuantity} DecreaseQuantity={DecreaseQuantity} />)}
             </ul>
 
             <hr style={{ width: "100%" }} />

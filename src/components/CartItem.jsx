@@ -1,12 +1,12 @@
 import React from 'react'
 
-function CartItem({ item }) {
+function CartItem({ product, IncreaseQuantity, DecreaseQuantity }) {
     return (
         <li className='cart-item'>
-            <div>{item.name} : {item.quantity}</div>
+            <div>{product.name} : {product.quantity}</div>
             <div className='actions'>
-                <button>-</button>
-                <button>+</button>
+                <button onClick={() => DecreaseQuantity(product)}>-</button>
+                <button onClick={() => IncreaseQuantity(product)}>+</button>
             </div>
         </li>
     )
