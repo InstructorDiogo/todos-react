@@ -8,12 +8,20 @@ function App() {
 
   const [cart, setCart] = useState([
     {
+      id: "003",
+      name: "Gala Apples",
+      description: "Sweet, crisp, and juicy apples with a vibrant red and yellow skin, ideal for snacking, baking, or making apple sauce.",
+      image_url: "https://images.openfoodfacts.org/images/products/405/648/918/6328/front_de.14.400.jpg",
+      price: 2.40,
+      quantity: 10
+    },
+    {
       id: "002",
       name: "Cheddar Cheese",
       description: "Aged cheddar cheese known for its deep, tangy flavor and smooth texture, perfect for melting over dishes or enjoying as part of a cheese platter.",
       image_url: "https://images.openfoodfacts.org/images/products/500/029/514/2893/front_en.13.400.jpg",
       price: 3.40,
-      quantity: 1
+      quantity: 3
     }
   ])
 
@@ -36,8 +44,19 @@ function App() {
   }
 
   function IncreaseQuantity(product) {
-    console.log("IncreaseQuantity")
-    // Add Quantity by 1 to an item
+    // Generate a copy of the array
+    const newCart = [...cart]
+
+    newCart.forEach(cartProduct => {
+
+      if (cartProduct.id === product.id){
+        cartProduct.quantity++
+      }
+
+    })
+
+    // Set the Cart
+    setCart(newCart)
   }
 
   function DecreaseQuantity(product) {
