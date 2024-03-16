@@ -67,10 +67,6 @@ button:focus-visible {
   }
 }
 
-button.fancy{
-  background-color: rgb(204, 204, 174);
-}
-
 #root{
   width: 100%;
   display: flex;
@@ -79,27 +75,11 @@ button.fancy{
   gap: 40px;
 }
 
-.user {
-  background-color: #444;
-  box-shadow: 10px 10px 10px #22222222;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.user > div{
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.user:nth-child(odd){
-  background-color: #333;
-}
-
 .container{
   padding: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .todo {
@@ -108,61 +88,14 @@ button.fancy{
   background-color: #f9f9f944;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: palevioletred;
 }
 
-.todo-list{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.todo svg{
-  cursor: pointer;
-}
-
-.todo.complete{
+.todo.completed{
   background-color: #a0e49944;
 }
 
-.container > .actions{
-  display: flex;
-  margin-bottom: 12px;
-  gap: 12px;
-}
-
-.product-page{
-  display: flex;
-  gap: 20px;
-}
-
-.product-catalog, .cart{
-  border-radius: 14px;
-  border: 2px solid white;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 1;
-}
-
-.product-catalog-item{
-  border-radius: 8px;
-  padding: 14px;
-  border: 2px solid white;
-  display: flex;
-  justify-content: space-between;
-}
-
-.product-info img{
-  max-width: 140px;
-}
-
-.cart-item{
-  display: flex;
-  align-items: center;
-}
-
-.cart-item .actions{
-  margin-left: 12px;
-  display: flex;
+.todo a {
+  color: white
 }
